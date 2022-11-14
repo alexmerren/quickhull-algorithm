@@ -140,9 +140,9 @@ def plot_convex_hull(coordinates, convex_hull):
     x_coordinates, y_coordinates = [item for item in zip(*coordinates)]
 
     # Define the center of the coordinates to find the clockwise order of the
-    # points. We use the atan2 function to find the angle from the center to
-    # the points. Add the first point in clockwise order to the end to finish
-    # the convex hull.
+    # points. We sort the points using the atan2 function to find the angle
+    # from the center to the points. Add the first point in clockwise order to
+    # the end to finish the convex hull.
     x_center, y_center  = sum(x_coordinates)/len(x_coordinates), sum(y_coordinates)/len(y_coordinates)
     convex_hull.sort(key=lambda x: (atan2(x[1]-y_center, x[0]-x_center)))
     convex_hull.append(convex_hull[0])
